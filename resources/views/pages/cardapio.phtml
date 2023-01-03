@@ -1,0 +1,226 @@
+<?php 
+if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
+  session_destroy(); 
+  header('Location: /login');
+  exit;
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intelli Food</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?= PATH_ADMIN ?>/plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?= PATH_ADMIN ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?= PATH_ADMIN ?>/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="<?= PATH ?>/home" class="nav-link">Home</a>
+      </li>
+    
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+     
+
+     
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+     
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <?php 
+  include('includes/navbarCliente.phtml')
+  ?>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Cardápio</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= PATH ?>/home">Home</a></li>
+              
+              <li class="breadcrumb-item active">Cardápio</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Default box -->
+            
+                <?php if (isset($success)): ?>
+                  <div class="card ">
+            <div class="card-body">
+                <div class="alert alert-success"><?= isset($success) ? $success : '' ?></div>
+              </div>
+            </div>
+            <?php endif; ?>
+              
+              <div class="card card-navy">
+              <div class="card-header">
+              
+                <h3><b>Lanches</b></h3>
+              </div>
+              <div class="card-body">
+              
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>Lanche</th>
+                        <th width='100px'>Preço</th>
+                        <th width='200px'></th>                
+                    </tr>
+                        <?php
+                            if (isset($lanches)){
+                                foreach ($lanches as $lanche){
+                                ?>
+                                    <tr>
+                                        <td><?= $lanche->nome ?></td>
+                                        <td>R$<?= $lanche->preco?></td> 
+                                        <td><a href="<?= PATH ?>/add-lan-carrinho?idlanche=<?= $lanche->id ?>"><button class="btn btn-primary">Adicionar ao carrinho</button></a></td>
+                                    </tr>
+                                <?php
+                                }
+                            }
+                        ?>
+                </table>
+                </div>
+              <!-- /.card-body -->
+              <!-- /.card-footer-->
+            </div>
+            <div class="card card-navy">
+              <div class="card-header">
+                <h3><b>Porções</b></h3>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>Porção</th>
+                        <th width='100px'>Preço</th>  
+                        <th width='200px'></th>              
+                    </tr>
+                        <?php
+                            if (isset($porcoes)){
+                                foreach ($porcoes as $porcao){
+                                ?>
+                                    <tr>
+                                        <td><?= $porcao->nome ?></td>
+                                        <td>R$<?= $porcao->preco?></td> 
+                                        <td><a href="<?= PATH ?>/add-porc-carrinho?idporcao=<?= $porcao->id ?>"><button class="btn btn-primary">Adicionar ao carrinho</button></a></td>
+                                    </tr>
+                                <?php
+                                }
+                            }
+                        ?>
+                </table>
+                </div>
+              <!-- /.card-body -->
+              <!-- /.card-footer-->
+            </div>
+            <div class="card card-navy">
+              <div class="card-header">
+                <h3><b>Bebidas</b></h3>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>Bebida</th>
+                        <th width='100px'>Preço</th>
+                        <th width='200px'></th>                
+                    </tr>
+                        <?php
+                            if (isset($bebidas)){
+                                foreach ($bebidas as $bebida){
+                                  if($bebida->qtd > 0) {
+                    
+                                ?>
+                                    <tr>
+                                        <td><?= $bebida->nome ?></td>
+                                        <td>R$<?= $bebida->preco?></td>
+                                        <td><a href="<?= PATH ?>/add-beb-carrinho?idbebida=<?= $bebida->id ?>"><button class="btn btn-primary">Adicionar ao carrinho</button></a></td>
+                                    </tr>
+                                <?php 
+                                }
+                              }
+                            }
+                        ?>
+                </table>
+
+<!-- tabelas de outros produtos -->
+
+              </div>
+              <!-- /.card-body -->
+              <!-- /.card-footer-->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <?php 
+  include('includes/footer.phtml')
+  ?>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="<?= PATH_ADMIN ?>/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= PATH_ADMIN ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="<?= PATH_ADMIN ?>/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?= PATH_ADMIN ?>/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+</body>
+</html>

@@ -1,0 +1,182 @@
+<html>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="<?= PATH ?>" class="brand-link">
+    <i class="bi bi-house"></i>
+    <span class="brand-text font-weight-light">Intelli Food</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <br>
+
+    <!-- SidebarSearch Form -->
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a href="<?= PATH ?>/home" class="nav-link">
+          <i class="bi bi-bag-fill"></i>
+            <p>Visão Cliente</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?= PATH ?>/relatorio" class="nav-link">
+          <i class="bi bi-bar-chart-fill"></i>
+            <p>Relatório</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?= PATH ?>/pedidos" class="nav-link">
+            <i class="bi bi-list-ul"></i>
+            <p>Pedidos</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?= PATH ?>/estoque" class="nav-link">
+            <i class="bi bi-box-seam"></i>
+            <p>Estoque</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="bi bi-person"></i>
+            <p>
+              Usuários
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= PATH ?>/usuarios" class="nav-link">
+                <i class="bi bi-people"></i>
+                <p>Usuarios Existentes</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= PATH ?>/novoUsuario" class="nav-link">
+                <i class="bi bi-person-plus"></i>
+                <p>Adicionar Usuário</p>
+              </a>
+            </li>
+
+            </a>
+        </li>
+      </ul>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="bi bi-shop-window"></i>
+          <p>
+            Ingredientes
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="<?= PATH ?>/ingredientes" class="nav-link">
+              <i class="bi bi-list-check"></i>
+              <p>Lista de Ingredientes</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= PATH ?>/add-ingrediente" class="nav-link">
+              <i class="bi bi-plus-circle-dotted"></i>
+              <p>Adicionar Ingrediente</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= PATH ?>/paes" class="nav-link">
+              <i class="bi bi-list-check"></i>
+              <p>Lista de Pães</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= PATH ?>/add-pao" class="nav-link">
+              <i class="bi bi-plus-circle-dotted"></i>
+              <p>Adicionar Pão</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fas fa-barcode"></i>
+          <p>
+            Produtos
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="<?= PATH ?>/bebidas" class="nav-link">
+              <i class="bi bi-cup-straw"></i>
+              <p>Bebidas</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= PATH ?>/add-bebida" class="nav-link">
+              <i class="bi bi-plus-circle-dotted"></i>
+              <p>Adicionar Bebida</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= PATH ?>/porcoes" class="nav-link">
+              <i class="bi bi-inboxes"></i>
+              <p>Porções</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= PATH ?>/add-porcao" class="nav-link">
+              <i class="bi bi-plus-circle-dotted"></i>
+              <p>Adicionar Porção</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= PATH ?>/lanches" class="nav-link">
+              <i class="bi bi-hdd-rack"></i>
+              <p>Lanches</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= PATH ?>/add-lanche" class="nav-link">
+              <i class="bi bi-plus-circle-dotted"></i>
+              <p>Adicionar Lanche</p>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a href="<?= PATH ?>/logout" class="nav-link">
+          <i class="bi bi-box-arrow-left"></i>
+          <p>Logout</p>
+        </a>
+      </li>
+
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+
+</html>

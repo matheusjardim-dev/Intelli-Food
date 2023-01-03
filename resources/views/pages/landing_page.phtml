@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelli Food</title>
+  
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-size: 100%;
+  background: #D69C1F
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: row;
+  justify-content:right;
+  padding: 24px;
+  padding-right: 150px;
+  background-color:#750908;
+}
+
+.cabecalho-imagem {
+  height: 72px;
+}
+
+.cabecalho-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.cabecalho-menu-item {
+  font-family: 'Sarala', sans-serif;
+  color: #FFFDE7;
+  font-weight: bold;
+  font-size: 18px
+}
+
+.conteudo {
+  margin-bottom: 48px;
+  border-top: 0.4px solid #750908;
+}
+
+.conteudo-principal {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+  padding-left: 200px;
+  padding-top: 50px;
+}
+
+.conteudo-principal-escrito {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.conteudo-principal-escrito-titulo {
+  font-family: 'Righteous', cursive;
+  font-weight: 400;
+  font-size: 64px;
+  color:#FFFDE7; 
+}
+
+.conteudo-principal-escrito-subtitulo {
+  font-family: 'Sarala', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color:#FFFDE7;
+}
+
+.conteudo-principal-escrito-botao {
+  background-color: #ffffff;
+  width: 180px;
+  height: 60px;
+  border: none;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-family: 'Sarala', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #750908;
+}
+
+.conteudo-principal-escrito-botao:hover {
+  background-color: #FFFDE7;
+  color: black;
+}
+
+.conteudo-principal-imagem {
+  height: 430px;
+}
+
+.conteudo-secundario {
+  border-top: 0.4px solid #750908;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+  background-color: #D69C1F;
+  padding-bottom: 48px;
+}
+
+.conteudo-secundario-titulo {
+  
+  padding-top: 48px;
+  font-family: 'Righteous', cursive;
+  font-weight: 400;
+  font-size: 24px;
+  color: #FFFDE7;
+  margin-bottom: 16px;
+}
+
+.conteudo-secundario-paragrafo {
+  font-family: 'Sarala', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #FFFDE7;
+}
+
+.rodape {
+    padding: 15px;
+    border-top: 0.4px solid #750908;
+    background-color:#750908;
+    color:#FFFDE7;
+    text-align: center;
+    font-family: 'Sarala', sans-serif;
+    font-weight: bold;
+}
+
+.rodape-imagem {
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+}
+</style>
+<body>
+ <header class="cabecalho">
+    <nav class="cabecalho-menu">
+      <a class="cabecalho-menu-item" href="<?= PATH ?>/cadastro">Cadastre-se</a>
+      <a class="cabecalho-menu-item" href="<?= PATH ?>/login">Login</a>
+    </nav>
+  </header>
+  
+  <main class="conteudo">
+    <section class="conteudo-principal">
+      <div class="conteudo-principal-escrito">
+        <h1 class="conteudo-principal-escrito-titulo">Intelli Food</h1>
+        <h2 class="conteudo-principal-escrito-subtitulo">Gerencie seu negócio de um jeito simples e eficaz!</h2>
+        <a class="conteudo-principal-escrito-botao" href="<?= PATH ?>/cadastro">
+            <button class="conteudo-principal-escrito-botao">Cadastre-se</button>
+        </a>
+        
+      </div>
+      
+    </section>
+   </main>
+    <section class="conteudo-secundario">
+      <h3 class="conteudo-secundario-titulo">O que é o Intelli Food?</h3>
+      <p class="conteudo-secundario-paragrafo">1. É um <strong>sistema de venda e controle de estoque</strong> automatizado para o seu negócio</p>
+      <p class="conteudo-secundario-paragrafo">2. Possui um <strong>sistema de estoque automático</strong> que se atualiza a cada pedido</p>
+    </section>
+  
+
+  <footer class="rodape">
+    Intelli Food - 2022
+  </footer>
+</body>
+
+</html>
